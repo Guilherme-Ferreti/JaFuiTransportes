@@ -6,5 +6,12 @@
       "**/.*",
       "**/node_modules/**"
     ]
-  }
+  },
+  "apiKey": "AIzaSyDA8HRS_73ObNGGENl-wuiZZbBpnbq47S4",
+  "authDomain": "ja-fui-transportes.firebaseapp.com",
+  "projectId": "ja-fui-transportes",
+  "storageBucket": "ja-fui-transportes.appspot.com",
+  "messagingSenderId": "161992441913",
+  "appId": "1:161992441913:web:883ce4f90ee23a0cd20de8",
+  "measurementId": "G-TYVEP2YP3B"
 }
