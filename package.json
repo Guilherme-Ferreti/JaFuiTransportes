@@ -9,7 +9,9 @@
     "sass": "sass --watch public/assets/sass/main.scss:public/assets/css/app.css",
     "sass-build": "sass public/assets/sass/main.scss:public/assets/css/app.css --style=compressed"
   },
-  "dependencies": {},
+  "dependencies": {
+    "firebase": "^8.3.1"
+  },
   "devDependencies": {
     "sass": "^1.32.8",
     "webpack": "^5.28.0",
