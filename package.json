@@ -1,14 +1,19 @@
 {
   "name": "jafui-transportes",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Website da empresa Já Fui Soluções Logísticas",
   "main": "index.html",
   "scripts": {
+    "dev": "webpack serve --content-base public --hot",
+    "build": "webpack --mode=production",
     "sass": "sass --watch public/assets/sass/main.scss:public/assets/css/app.css",
     "sass-build": "sass public/assets/sass/main.scss:public/assets/css/app.css --style=compressed"
   },
   "dependencies": {},
   "devDependencies": {
-    "sass": "^1.32.8"
+    "sass": "^1.32.8",
+    "webpack": "^5.28.0",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
   }
 }
