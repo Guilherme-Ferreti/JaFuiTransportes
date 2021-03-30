@@ -5,10 +5,7 @@ module.exports = {
     entry: './public/assets/js/index.js',
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'public/assets/js'),
-    },
-    devServer: {
-        publicPath: '/assets/js'
+        path: path.resolve(__dirname, 'public'),
     },
     devtool: 'eval-source-map',
 };

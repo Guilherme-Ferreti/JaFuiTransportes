@@ -1,20 +1,16 @@
 const header = document.querySelector('#header');
+const footer = document.querySelector('#footer');
 
 if (header) {
-    const btnOpen = document.getElementById("btn-open");
-    const btnClose = document.getElementById("btn-close");
-
-    btnOpen.addEventListener('click', e => {
+    header.querySelector('#btn-open').addEventListener('click', e => {
         header.classList.toggle('menu-open');
     });
     
-    btnClose.addEventListener('click', e => {
+    header.querySelector('#btn-close').addEventListener('click', e => {
         header.classList.toggle('menu-open');
     });
 }
 
-const footer = document.querySelector('#footer');
-
 if (footer) {
-    
+    footer.querySelector('#rights-reserved').innerHTML = `© ${new Date().getFullYear()} Todos os direitos reservados.`;
 }
