@@ -1,0 +1,20 @@
+#error {
+    flex-direction: column;
+    font-family: 'Segoe UI';
+    align-items: center;
+    padding: var(--space);
+    h1 {
+        margin: var(--space) 0;
+    }
+    img {
+        margin: var(--space) 0;
+        max-width: 80%;
+    }
+    p {
+        margin: var(--space) 0;
+    }
+    a {
+        margin: var(--space) 0;
+        @include button-green;
+    }
+}

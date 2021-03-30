@@ -1,0 +1,359 @@
+#home {
+    flex-direction: column;
+    max-width: 100vw;
+    .banner {
+        width: 100%;
+        flex-direction: column;
+        justify-content: space-evenly;
+        img {
+            height: 247px;
+            max-width: 404px;
+        }
+        .wrapper {
+            color: var(--black-2);
+            flex-direction: column;
+            font-family: 'Segoe UI';
+            padding: var(--space);
+            align-items: center;
+            text-align: center;
+            h1 {
+                font-size: 25px;
+            }
+            p {
+                margin-top: var(--space);
+            }
+            .btn {
+                margin-top: var(--space);
+                @include button-green;
+            }
+        }
+    }
+    .service {
+        padding: var(--space);
+        align-items: center;
+        text-align: center;
+        font-family: 'Segoe UI';
+        color: var(--black-2);
+        flex-direction: column;
+        max-width: 100vw;
+        h2 {
+            font-size: 18px;
+            font-weight: normal;
+        }
+        .wrapper {
+            width: 100%;
+            flex-direction: column;
+            .pair {
+                justify-content: space-evenly;
+                .icon {
+                    flex-direction: column;
+                    justify-content: space-between;
+                    margin-top: var(--space);
+                    span {
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+    .solutions {
+        margin-top: 45px;
+        height: 500px;
+        width: 100%;
+        flex-direction: column;
+        padding: var(--space);
+        background-image: url('/assets/images/packing.webp');
+        background-size: cover;
+        background-position-x: 70%;
+        position: relative;
+        .overlay {
+            z-index: 1;
+            background-color: var(--black);
+            opacity: .25;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: inherit;
+            width: inherit;
+        }
+        .card {
+            flex-direction: column;
+            background-color: var(--white);
+            border-radius: 5px;
+            font-family: 'Segoe UI';
+            color: var(--black-2);
+            padding: var(--space);
+            text-align: center;
+            z-index: 2;
+            max-width: 525px;
+            p {
+                margin-top: var(--space);
+            }
+            a {
+                margin-top: var(--space);
+                @include button-blue;
+            }
+        }
+    }
+    .traking {
+        margin-top: 45px;
+        flex-direction: column;
+        background-color: var(--white);
+        .card {
+            width: 100%;
+            background-color: var(--white);
+            flex-direction: column;
+            font-family: 'Segoe UI';
+            padding: var(--space);
+            text-align: center;
+            color: var(--black-2);
+            p {
+                margin-top: var(--space);
+            }
+            a {
+                margin-top: var(--space);
+                @include button-green;
+            }
+        }
+        img {
+            height: 265px;
+            max-width: 497px;
+        }
+    }
+    .work-with-us {
+        margin-top: 45px;
+        flex-direction: column;
+        background-color: var(--white);
+        .card {
+            width: 100%;
+            background-color: var(--white);
+            flex-direction: column;
+            font-family: 'Segoe UI';
+            padding: var(--space);
+            text-align: center;
+            color: var(--black-2);
+            p {
+                margin-top: var(--space);
+            }
+            a {
+                margin-top: var(--space);
+                @include button-blue;
+            }
+        }
+        img {
+            height: 265px;
+            max-width: 497px;
+        }
+    }
+    .newsletter {
+        margin-top: 45px;
+        flex-direction: column;
+        font-family: 'Segoe UI';
+        width: 100%;
+        height: 413px;
+        padding: var(--space);
+        color: var(--white);
+        background-image: url('/assets/images/warehouse.webp');
+        background-size: cover;
+        background-position-x: 60%;
+        h3 {
+            font-size: 20px;
+            font-style: normal;
+            text-align: center;
+        }
+        form {
+            flex-direction: column;
+            padding: var(--space);
+            .field {
+                @include form-field;
+                margin-top: var(--space);
+            }
+            .btn-enviar {
+                margin-top: var(--space);
+                @include button-green;
+            }
+        }
+    }
+}
+
+@media (min-width: 400px) {
+    #home {
+        .banner {
+            img {
+                max-width: unset;
+                height: 300px;
+            }
+        }
+    }
+}
+
+@media (min-width: 498px){
+    #home {
+        .banner {
+            img {
+                height: 325px;
+            }
+        }
+        .traking, .work-with-us {
+            justify-content: center;
+            align-items: center;    
+        }
+    }
+}
+
+@media (min-width: 550px) {
+    #home {
+        .banner {
+            img {
+                height: 360px;
+            }
+        }
+    }
+}
+
+@media (min-width: 720px) {
+    #home {
+        .banner {
+            img {
+                height: 400px;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px){
+    #home {
+        .banner {
+            flex-direction: row-reverse;
+            img {
+                height: 300px;
+            }
+        }
+        .solutions {
+            justify-content: center;
+            background-position-y: 50%;
+            .card {
+                h3 {
+                    font-size: 25px;
+                }
+                p {
+                    font-size: 18px;
+                }
+            }
+        }
+        .traking, .work-with-us {
+            flex-direction: row;  
+        }
+        .work-with-us {
+            flex-direction: row-reverse;
+        }
+        .newsletter {
+            height: 220px;
+            background-position-y: 50%;
+            h3 {
+                font-size: 25px;
+            }
+            form {
+                padding: 0px;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                input {
+                    width: 250px;
+                }
+                .brn-enviar {
+                    margin-top: 70px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    #home {
+        .banner {
+            .wrapper {
+                align-items: center;
+                justify-content: space-around;
+                h1 {
+                    font-size: 35px;
+                }
+                p {
+                    font-size: 20px;
+                }
+            }
+            img {
+                height: 400px;
+            }
+        }
+        .service {
+            h2 {
+                font-size: 25px;
+            }
+            .wrapper {
+                margin-top: var(--space);
+                flex-direction: row;
+                justify-content: space-evenly;
+                padding: 0 200px;
+                .pair {
+                    width: 50%;
+                }
+            }
+        }
+        .traking, .work-with-us {
+            .card {
+                padding: var(--space);
+                height: 400px;
+                justify-content: space-evenly;
+                p {
+                    font-size: 18px;
+                    padding: 0px 60px;
+                    text-align: justify;
+                }
+            }
+            img {
+                max-width: unset;
+                height: 400px;
+            } 
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    #home {
+        .banner {
+            img {
+                height: 500px;
+            }
+            .wrapper {
+                h1 {
+                    font-size: 50px;
+                }
+                p {
+                    font-size: 25px;
+                }
+                .btn {
+                    font-size: 20px;
+                }
+            }
+        }
+        .traking, .work-with-us {
+            .card {
+                padding: var(--space) 100px;
+                h3 {
+                    font-size: 35px;
+                }
+            }
+        }
+        .newsletter {
+            h3 {
+                font-size: 35px;
+            }
+            form {
+                input {
+                    width: 400px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,130 @@
+#header {
+    width: 100%;
+    min-width: 320px;
+    height: 100px;
+    flex-direction: row;
+    background-color: var(--white);
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--space);
+    position: relative;
+    z-index: 4;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .2);
+    .overlay {
+        display: none;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        background-color: var(--black);
+        opacity: .5;
+    }
+    .logo {
+        transition: left 1s ease-in-out;
+        width: 100px;
+        height: 50px;
+        position: absolute;
+        z-index: 5;
+        top: var(--space);
+        left: var(--space);
+    }
+    #btn-open {
+        outline: none;
+        border: none;
+        background: none;
+        img {
+            width: 60px;
+            height: 40px;
+        }
+    }
+    .menu {
+        transition: right .5s ease-in-out;
+        background-color: var(--white);
+        width: 300px;
+        height: 100vh;
+        position: fixed;
+        right: -300px;
+        top: 0;
+        z-index: 3;
+        overflow-y: auto;
+        padding-top: 100px;
+        justify-content: center;
+        ul {
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: var(--space);
+            border-top: var(--black) 1px solid;
+            li {
+                a {
+                    text-decoration: none;
+                    font-size: 20px;
+                    color: var(--black-2);
+                    font-family: 'Segoe UI';
+                    font-weight: 400;
+                    padding: 5px 10px;
+
+                }
+                a:hover {
+                    color: var(--blue-1);
+                }
+            }
+        }
+        #btn-close {
+            outline: none;
+            border: none;
+            background: none;
+            position: absolute;
+            top: var(--space);
+            right: var(--space);
+            img {
+                width: 55px;
+                height: 35px;
+            }
+        }
+    }
+}
+#header.menu-open {
+    #btn-open {
+        display: none;
+    }
+    .logo {
+        left: calc( 100vw -  300px + var(--space) );
+        position: fixed;
+    }
+    .menu {
+        display: flex;
+        right: 0;
+    }
+    .overlay {
+        display: flex;
+    }
+}
+
+@media (min-width: 1200px) {
+    #header {
+        #btn-open, .overlay, nav > #btn-close {
+            display: none;
+        }
+        .logo {
+            position: initial;
+        }
+        .menu {
+            position: initial;
+            width: 100%;
+            height: initial;
+            padding: 0;
+            flex-direction: row;
+            margin-left: 100px;
+            ul {
+                width: 100%;
+                flex-direction: row;
+                border-top: none;
+                margin: 0;
+                justify-content: space-evenly;
+            }
+        }
+    }
+}

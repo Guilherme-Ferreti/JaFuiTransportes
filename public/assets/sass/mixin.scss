@@ -1,0 +1,78 @@
+@mixin button {
+    text-decoration: none;
+    background: none;
+    outline: none;
+    border: none;
+    color: var(--white);
+    padding: 5px 20px;
+    border-radius: 5px;
+    max-width: 280px;
+    align-self: center;
+    font-size: 20px;
+    font-family: 'Segoe UI';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all .3s;
+    height: 40px;
+}
+@mixin button-green {
+    @include button; 
+    background-color: var(--green-1);
+    &:hover {
+        background-color: var(--green-2);    
+    }
+}
+
+@mixin button-blue {
+    @include button;
+    background-color: var(--blue-1);
+    &:hover {
+        background-color: var(--blue-2);    
+    }
+}
+
+@mixin form-field {
+    flex-direction: column;
+    font-family: 'Segoe UI';
+    label {
+        color: white;
+        font-size: 20px;
+        margin-bottom: var(--space);
+    }
+    input {
+        height: 45px;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 18px;
+        transition: all .3s;
+        &:focus {
+            outline: none;
+            border-color: var(--blue-1);
+        }
+    }
+    select {
+        height: 45px;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 18px;
+        transition: all .3s;
+        &:focus {
+            outline: none;
+            border-color: var(--blue-1);
+        }
+    }
+    textarea {
+        font-size: 18px;
+        border-radius: 5px;
+        resize: none;
+        padding: var(--space);
+        transition: all .3s;
+        &:focus {
+            outline: none;
+            border-color: var(--blue-1);
+        }
+    }
+}

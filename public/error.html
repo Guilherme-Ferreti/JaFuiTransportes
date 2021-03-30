@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Já Fui Transportes</title>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/icons/favicons/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/icons/favicons/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/icons/favicons/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/icons/favicons/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/icons/favicons/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/icons/favicons/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/icons/favicons/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/icons/favicons/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/favicons/apple-icon-180x180.png"/>
+    <link rel="icon" type="image/png" sizes="192x192"  href="/assets/images/icons/favicons/android-icon-192x192.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicons/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/icons/favicons/favicon-96x96.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicons/favicon-16x16.png"/>
+    <link rel="manifest" href="/manifest.json"/>
+    <meta name="msapplication-TileColor" content="#ffffff"/>
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png"/>
+    <meta name="theme-color" content="#ffffff"/>
+
+    <meta name="description" content="Conheça a Já Fui Transportes, empresa líder em Logística na América Latina"/>
+
+    <link rel="stylesheet" href="/assets/css/app.css"/>
+
+</head>
+<body>
+
+    <header id="header">
+
+        <div class="overlay"></div>
+
+        <a href="index.html"><img src="/assets/images/icons/Logo.svg" class="logo" alt="Já Fui Transportes Logo" /></a>
+
+        <button type="button" id="btn-open">
+            <img src="/assets/images/icons/menu.svg" alt="Botão abrir menu" />
+        </button>
+
+        <nav class="menu">
+
+            <button type="close" id="btn-close">
+                <img src="/assets/images/icons/cancel.svg" alt="Botão fechar Menu">
+            </button>
+
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="services.html">Nossos Serviços</a></li>
+                <li><a href="contact.html">Fale Conosco</a></li>
+                <li><a href="track.html">Rastreio de Encomendas</a></li>
+                <li><a href="register.html">Crie sua Conta</a></li>
+                <li><a href="login.html">Área do Usuário</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main id="error">
+
+        <h1>404 - Página não encontrada</h1>
+        
+        <img src="/assets/images/package-stack.webp" alt="Pilha de caixas">
+
+        <p>O conteúdo solicitado pode não estar disponível no momento, verifique se digitou o que procura corretamente.</p>
+
+        <a href="index.html" class="btn">Retornar à página principal</a>
+
+    </main>
+
+    <footer id="footer">
+
+        <div class="items">
+            <div class="item">
+                <h4>Atendimento</h4>
+                <ul>
+                    <li>Segunda à Sexta</li>
+                    <li>Das 9h às 22h</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <h4>Minha Carga</h4>
+                <ul>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="rastreio.html">Rastreio</a></li>
+                    <li><a href="contato.html">Dúvidas</a></li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <h4>Páginas</h4>
+                <ul>
+                    <li><a href="servico.html">Serviços</a></li>
+                    <li><a href="cadastro.html">Cadastro</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="wrapper">
+            <img src="/assets/images/icons/Logo-2.svg" alt="Loga Já Fui Transportes" class="logo">
+
+            <span>© 2020 Todos os direitos reservados.</span>
+            <span>Desenvolvido por Guilherme Ferreti para o Hcode LAB.</span>
+        </div>
+
+    </footer>
+
+    <script>
+        const btnOpen = document.getElementById("btn-open");
+        const btnClose = document.getElementById("btn-close");
+        const header = document.getElementById('header');
+
+        btnOpen.addEventListener('click', e => {
+            header.classList.toggle('menu-open');
+        });
+
+        btnClose.addEventListener('click', e => {
+            header.classList.toggle('menu-open');
+        });
+
+    </script>
+
+</body>
+</html>

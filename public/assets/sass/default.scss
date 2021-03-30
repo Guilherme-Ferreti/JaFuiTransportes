@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, div, article, aside, footer, header, main, nav, section, ul, ol, li, button, figure, picture, hr, form {
+    display: flex;
+}
+
+body {
+    flex-direction: column;
+    background-color: var(--bg-color);
+    > main {
+        min-height: calc(100vh - 100px);
+    }
+}
+
+@media (min-width: 1200px) {
+    body {
+        > main {
+            min-height: calc(100vh - 100px);
+        }
+    }
+}
