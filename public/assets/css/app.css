@@ -892,6 +892,7 @@ body > main {
   width: 80%;
   max-width: 1000px;
   background-color: var(--white);
+  display: none;
 }
 #contact form .title {
   flex-direction: row;

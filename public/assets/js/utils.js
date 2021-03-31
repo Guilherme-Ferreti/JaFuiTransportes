@@ -25,3 +25,33 @@ export function getQueryString()
 
     return queryString;
 }
+
+export function getFormValues(form)
+{
+    const values = {};
+
+    form.querySelectorAll('[name]').forEach(field => {
+        switch (field.type) {
+            case 'select':
+                values[field.name] = field.querySelector('option:selected')?.value;
+                break;
+
+            case 'radio':
+                values[field.name] = form.querySelector(`[name=${field.name}]:checked`)?.value;
+                break;
+
+            case 'checkbox':
+                values[field.name] = [];
+
+                form.querySelectorAll(`[name=${field.name}]:checked`).forEach(checkbox => {
+                    values[field.name].push(checkbox.value);
+                });
+                break;
+
+            default:
+                values[field.name] = field.value;
+        }
+    });
+
+    return values;
+}

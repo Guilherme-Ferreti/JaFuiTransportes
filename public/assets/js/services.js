@@ -4,10 +4,10 @@ import { appendToTemplate } from './utils';
 const db = firebase.firestore();
 const servicesPage = document.querySelector("#services");
 
-if (services) {
+if (servicesPage) {
 
     const collection = db.collection('services').orderBy('created_at', 'desc');
-    const cards = services.querySelector('.cards');
+    const cards = servicesPage.querySelector('.cards');
 
     collection.onSnapshot(snapshot => {
         cards.innerHTML = '';

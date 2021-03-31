@@ -60,7 +60,9 @@
 
     <main id="contact">
 
-        <form method="POST">
+        <div class="lds-ring" id="loader"><div></div><div></div><div></div><div></div></div>
+
+        <form>
 
             <div class="title">
                 <span>Fale com a Já Fui Transportes</span>
@@ -96,7 +98,7 @@
     
                     <div class="field">
                         <label for="order-code">Código do Pedido</label>
-                        <input type="text" name="order_code" id="order-code" required />
+                        <input type="text" name="orderCode" id="order-code" required />
                     </div>
 
                 </div>
@@ -157,6 +159,6 @@
 
     </footer>
 
-    <script src="assets/js/bundle.js"></script>
+    <script src="bundle.js"></script>
 </body>
 </html>
