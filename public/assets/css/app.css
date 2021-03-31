@@ -58,6 +58,46 @@ body > main {
   font-weight: bold;
   src: local("Segoe UI Bold Italic"), url("../fonts/Segoe-UI-Bold-Italic.ttf") format("ttf");
 }
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: var(--blue-1) transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 #header {
   width: 100%;
   min-width: 320px;
@@ -1114,7 +1154,6 @@ body > main {
 #services .cards .card {
   width: 291px;
   height: 244px;
-  background-image: url("/assets/images/delivery-service.webp");
   background-size: cover;
   position: relative;
   color: var(--white);
@@ -1125,6 +1164,7 @@ body > main {
   align-items: center;
   border-radius: 5px;
   margin: 25px;
+  cursor: pointer;
 }
 #services .cards .card .overlay {
   position: absolute;
@@ -1135,6 +1175,7 @@ body > main {
   width: 100%;
   top: 0;
   left: 0;
+  border-radius: inherit;
 }
 #services .cards .card .title {
   margin-top: 10px;

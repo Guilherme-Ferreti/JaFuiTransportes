@@ -22,7 +22,7 @@ if (services) {
                 <a href="login.html" class="button">Contratar</a>
             `);
 
-            card.style.backgroundImage = service.image;
+            card.style.backgroundImage = `url(${service.image}`;
             card.classList.add('card');
         });
     });
