@@ -1,7 +1,7 @@
 #header {
     width: 100%;
     min-width: 320px;
-    height: 100px;
+    height: 70px;
     flex-direction: row;
     background-color: var(--white);
     align-items: center;
@@ -27,7 +27,7 @@
         height: 50px;
         position: absolute;
         z-index: 5;
-        top: var(--space);
+        top: 10px;
         left: var(--space);
     }
     #btn-open {
@@ -61,11 +61,11 @@
             li {
                 a {
                     text-decoration: none;
-                    font-size: 20px;
+                    font-size: 17px;
                     color: var(--black-2);
                     font-family: 'Segoe UI';
                     font-weight: 400;
-                    padding: 5px 10px;
+                    padding: 5px 5px;
 
                 }
                 a:hover {
