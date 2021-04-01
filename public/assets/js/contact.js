@@ -2,9 +2,9 @@ import firebase from './firebase-app';
 import { getFormValues, getLoaderHTML, resetForm } from './utils';
 
 const contactPage = document.querySelector('#contact');
-const db = firebase.firestore();
 
 if (contactPage) {
+    const db = firebase.firestore();
     const loader = document.querySelector('#loader');
     const form = contactPage.querySelector('form');
     const btnSubmit = form.querySelector('[type="submit"]');
@@ -40,9 +40,9 @@ if (contactPage) {
         } else if (!email) {
             alert('Preencha o e-mail.');
         } else if (!subject) {
-            alert('Preencha o assunto.');
+            alert('Preencha o assunto!');
         } else if (!message) {
-            alert('Preencha a mensagem.');
+            alert('Preencha a mensagem!');
         } else {
 
             btnSubmit.innerHTML = getLoaderHTML();
