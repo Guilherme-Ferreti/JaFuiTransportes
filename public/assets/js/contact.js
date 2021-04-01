@@ -1,5 +1,5 @@
 import firebase from './firebase-app';
-import { getFormValues } from './utils';
+import { getFormValues, getLoaderHTML, resetForm } from './utils';
 
 const contactPage = document.querySelector('#contact');
 const db = firebase.firestore();
@@ -8,24 +8,27 @@ if (contactPage) {
     const loader = document.querySelector('#loader');
     const form = contactPage.querySelector('form');
     const btnSubmit = form.querySelector('[type="submit"]');
-
-    loader.style.display = 'none';
-    form.style.display = 'flex';
+    const selectEl = form.querySelector('#subject')
 
     const loadContacts = async () => {
-
-        const collection = await db.collection('contacts').doc('rZERVIQ1OAXYhelbOLUL').collection('subjects').get();
-
-        console.log(collection.docs);
+        const collection = await db.collection('contact-subjects').orderBy('name', 'asc').get();
 
         collection.docs.forEach(subject => {
+            subject = subject.data();
 
-            console.log(subject.data());
+            const option = document.createElement('option');
+
+            option.value = subject.name;
+            option.innerText = subject.name;
+
+            selectEl.append(option);
         }); 
+
+        loader.style.display = 'none';
+        form.style.display = 'flex';
     }
 
     loadContacts();
-
 
     btnSubmit.addEventListener('click', async e => {
         e.preventDefault();
@@ -41,7 +44,9 @@ if (contactPage) {
         } else if (!message) {
             alert('Preencha a mensagem.');
         } else {
-            btnSubmit.innerText = 'Enviando...';
+
+            btnSubmit.innerHTML = getLoaderHTML();
+            btnSubmit.disabled = true;
 
             const data = {
                 name: name,
@@ -52,12 +57,16 @@ if (contactPage) {
                 created_at: new Date(),
             }
 
-            db.collection('contacts').add(data).then(res => {
+            db.collection('contacts').add(data).then(res => { 
+                resetForm(form);
+                
                 alert('Contato enviado com sucesso.');
             }).catch(err => {
                 alert('Um erro inesperado ocorreu. Por favor, tente novamente mais tarde.');
             }).finally(() => {
                 btnSubmit.innerText = 'Enviar';
+
+                btnSubmit.disabled = false;
             });
         }
     });

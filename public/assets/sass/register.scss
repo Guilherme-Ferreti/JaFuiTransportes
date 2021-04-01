@@ -27,7 +27,7 @@
             width: 100%;
             .field {
                 @include form-field;
-                padding: var(--space) 0px;
+                padding: 10px 0px;
                 width: 80%;
                 label {
                     color: var(--black-1);
@@ -45,7 +45,7 @@
                 margin: var(--space) 0px;
             }
             a {
-                padding: var(--space) 0px;
+                padding: 10px 0px;
                 text-decoration: none;
                 color: var(--black-1);
                 &:hover {

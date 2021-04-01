@@ -64,7 +64,6 @@ body > main {
   width: 80px;
   height: 80px;
 }
-
 .lds-ring div {
   box-sizing: border-box;
   display: block;
@@ -75,7 +74,21 @@ body > main {
   border: 8px solid;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+.lds-ring.is-button {
+  width: 45px;
+  height: 45px;
+}
+.lds-ring.is-button div {
+  width: 30px;
+  height: 30px;
+  border-width: 5px;
+}
+.lds-ring.blue-1 div {
   border-color: var(--blue-1) transparent transparent transparent;
+}
+.lds-ring.white div {
+  border-color: var(--white) transparent transparent transparent;
 }
 
 .lds-ring div:nth-child(1) {
@@ -542,13 +555,26 @@ body > main {
   background-image: url("/assets/images/warehouse.webp");
   background-size: cover;
   background-position-x: 60%;
+  position: relative;
+}
+#home .newsletter .overlay {
+  z-index: 1;
+  background-color: var(--black);
+  opacity: 0.25;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: inherit;
+  width: inherit;
 }
 #home .newsletter h3 {
+  z-index: 2;
   font-size: 20px;
   font-style: normal;
   text-align: center;
 }
 #home .newsletter form {
+  z-index: 2;
   flex-direction: column;
   padding: var(--space);
 }
@@ -559,15 +585,15 @@ body > main {
 }
 #home .newsletter form .field label {
   color: white;
-  font-size: 20px;
+  font-size: 16px;
   margin-bottom: var(--space);
 }
 #home .newsletter form .field input {
-  height: 45px;
+  height: 35px;
   border: none;
   border-radius: 5px;
-  padding: 10px;
-  font-size: 18px;
+  padding: 0px 10px;
+  font-size: 14px;
   transition: all 0.3s;
 }
 #home .newsletter form .field input:focus {
@@ -575,10 +601,10 @@ body > main {
   border-color: var(--blue-1);
 }
 #home .newsletter form .field select {
-  height: 45px;
+  height: 35px;
   border-radius: 5px;
-  padding: 10px;
-  font-size: 18px;
+  padding: 0px 10px;
+  font-size: 14px;
   transition: all 0.3s;
 }
 #home .newsletter form .field select:focus {
@@ -586,7 +612,7 @@ body > main {
   border-color: var(--blue-1);
 }
 #home .newsletter form .field textarea {
-  font-size: 18px;
+  font-size: 14px;
   border-radius: 5px;
   resize: none;
   padding: var(--space);
@@ -793,20 +819,20 @@ body > main {
 #login form .wrapper .field {
   flex-direction: column;
   font-family: "Segoe UI";
-  padding: var(--space) 0px;
+  padding: 10px 0px;
   width: 80%;
 }
 #login form .wrapper .field label {
   color: white;
-  font-size: 20px;
+  font-size: 16px;
   margin-bottom: var(--space);
 }
 #login form .wrapper .field input {
-  height: 45px;
+  height: 35px;
   border: none;
   border-radius: 5px;
-  padding: 10px;
-  font-size: 18px;
+  padding: 0px 10px;
+  font-size: 14px;
   transition: all 0.3s;
 }
 #login form .wrapper .field input:focus {
@@ -814,10 +840,10 @@ body > main {
   border-color: var(--blue-1);
 }
 #login form .wrapper .field select {
-  height: 45px;
+  height: 35px;
   border-radius: 5px;
-  padding: 10px;
-  font-size: 18px;
+  padding: 0px 10px;
+  font-size: 14px;
   transition: all 0.3s;
 }
 #login form .wrapper .field select:focus {
@@ -825,7 +851,7 @@ body > main {
   border-color: var(--blue-1);
 }
 #login form .wrapper .field textarea {
-  font-size: 18px;
+  font-size: 14px;
   border-radius: 5px;
   resize: none;
   padding: var(--space);
@@ -869,7 +895,7 @@ body > main {
   background-color: var(--blue-2);
 }
 #login form .wrapper a {
-  padding: var(--space) 0px;
+  padding: 10px 0px;
   text-decoration: none;
   color: var(--black-1);
 }
@@ -883,13 +909,14 @@ body > main {
   color: var(--black-1);
   font-family: "Segoe UI";
   padding: var(--space);
+  flex-direction: column;
 }
 #contact form {
   flex-direction: column;
   border: 1px solid var(--gray-1);
   border-radius: 5px;
   align-items: center;
-  width: 80%;
+  width: 60%;
   max-width: 1000px;
   background-color: var(--white);
   display: none;
@@ -916,20 +943,20 @@ body > main {
 #contact form .wrapper .fields .field {
   flex-direction: column;
   font-family: "Segoe UI";
-  padding: var(--space) 0px;
+  padding: 10px 0px;
   width: 80%;
 }
 #contact form .wrapper .fields .field label {
   color: white;
-  font-size: 20px;
+  font-size: 16px;
   margin-bottom: var(--space);
 }
 #contact form .wrapper .fields .field input {
-  height: 45px;
+  height: 35px;
   border: none;
   border-radius: 5px;
-  padding: 10px;
-  font-size: 18px;
+  padding: 0px 10px;
+  font-size: 14px;
   transition: all 0.3s;
 }
 #contact form .wrapper .fields .field input:focus {
@@ -937,10 +964,10 @@ body > main {
   border-color: var(--blue-1);
 }
 #contact form .wrapper .fields .field select {
-  height: 45px;
+  height: 35px;
   border-radius: 5px;
-  padding: 10px;
-  font-size: 18px;
+  padding: 0px 10px;
+  font-size: 14px;
   transition: all 0.3s;
 }
 #contact form .wrapper .fields .field select:focus {
@@ -948,7 +975,7 @@ body > main {
   border-color: var(--blue-1);
 }
 #contact form .wrapper .fields .field textarea {
-  font-size: 18px;
+  font-size: 14px;
   border-radius: 5px;
   resize: none;
   padding: var(--space);
@@ -1050,20 +1077,20 @@ body > main {
 #register form .wrapper .field {
   flex-direction: column;
   font-family: "Segoe UI";
-  padding: var(--space) 0px;
+  padding: 10px 0px;
   width: 80%;
 }
 #register form .wrapper .field label {
   color: white;
-  font-size: 20px;
+  font-size: 16px;
   margin-bottom: var(--space);
 }
 #register form .wrapper .field input {
-  height: 45px;
+  height: 35px;
   border: none;
   border-radius: 5px;
-  padding: 10px;
-  font-size: 18px;
+  padding: 0px 10px;
+  font-size: 14px;
   transition: all 0.3s;
 }
 #register form .wrapper .field input:focus {
@@ -1071,10 +1098,10 @@ body > main {
   border-color: var(--blue-1);
 }
 #register form .wrapper .field select {
-  height: 45px;
+  height: 35px;
   border-radius: 5px;
-  padding: 10px;
-  font-size: 18px;
+  padding: 0px 10px;
+  font-size: 14px;
   transition: all 0.3s;
 }
 #register form .wrapper .field select:focus {
@@ -1082,7 +1109,7 @@ body > main {
   border-color: var(--blue-1);
 }
 #register form .wrapper .field textarea {
-  font-size: 18px;
+  font-size: 14px;
   border-radius: 5px;
   resize: none;
   padding: var(--space);
@@ -1126,7 +1153,7 @@ body > main {
   background-color: var(--green-2);
 }
 #register form .wrapper a {
-  padding: var(--space) 0px;
+  padding: 10px 0px;
   text-decoration: none;
   color: var(--black-1);
 }

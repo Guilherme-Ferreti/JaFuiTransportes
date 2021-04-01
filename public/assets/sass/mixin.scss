@@ -38,15 +38,15 @@
     font-family: 'Segoe UI';
     label {
         color: white;
-        font-size: 20px;
+        font-size: 16px;
         margin-bottom: var(--space);
     }
     input {
-        height: 45px;
+        height: 35px;
         border: none;
         border-radius: 5px;
-        padding: 10px;
-        font-size: 18px;
+        padding: 0px 10px;
+        font-size: 14px;
         transition: all .3s;
         &:focus {
             outline: none;
@@ -54,10 +54,10 @@
         }
     }
     select {
-        height: 45px;
+        height: 35px;
         border-radius: 5px;
-        padding: 10px;
-        font-size: 18px;
+        padding: 0px 10px;
+        font-size: 14px;
         transition: all .3s;
         &:focus {
             outline: none;
@@ -65,7 +65,7 @@
         }
     }
     textarea {
-        font-size: 18px;
+        font-size: 14px;
         border-radius: 5px;
         resize: none;
         padding: var(--space);

@@ -156,12 +156,25 @@
         background-image: url('/assets/images/warehouse.webp');
         background-size: cover;
         background-position-x: 60%;
+        position: relative;
+        .overlay {
+            z-index: 1;
+            background-color: var(--black);
+            opacity: .25;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: inherit;
+            width: inherit;
+        }
         h3 {
+            z-index: 2;
             font-size: 20px;
             font-style: normal;
             text-align: center;
         }
         form {
+            z-index: 2;
             flex-direction: column;
             padding: var(--space);
             .field {

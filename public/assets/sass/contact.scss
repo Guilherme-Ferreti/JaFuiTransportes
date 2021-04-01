@@ -4,12 +4,13 @@
     color: var(--black-1);
     font-family: 'Segoe UI';
     padding: var(--space);
+    flex-direction: column;
     form {
         flex-direction: column;  
         border: 1px solid var(--gray-1);
         border-radius: 5px;
         align-items: center;
-        width: 80%;
+        width: 60%;
         max-width: 1000px;
         background-color: var(--white);
         display: none;
@@ -32,7 +33,7 @@
                 align-items: center;
                 .field {
                     @include form-field;
-                    padding: var(--space) 0px;
+                    padding: 10px 0px;
                     width: 80%;
                     label {
                         color: var(--black-1);

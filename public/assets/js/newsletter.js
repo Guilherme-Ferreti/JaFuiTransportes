@@ -1,5 +1,5 @@
 import firebase from './firebase-app';
-import { getFormValues } from './utils';
+import { getFormValues, getLoaderHTML, resetForm } from './utils';
 
 const newsletterEl = document.querySelector('.newsletter');
 const db = firebase.firestore();
@@ -18,7 +18,9 @@ if (newsletterEl) {
         } else if (!email) {
             alert('Preencha o e-mail.');
         } else {
-            btnSubmit.innerText = 'Enviando...';
+
+            btnSubmit.innerHTML = getLoaderHTML('white');
+            btnSubmit.disabled = true;
 
             const data = {
                 name: name,
@@ -28,10 +30,14 @@ if (newsletterEl) {
 
             db.collection('newsletter').add(data).then(res => {
                 alert('Cadastro realizado com sucesso.');
+
+                resetForm(form);
             }).catch(err => {
                 alert('Um erro inesperado ocorreu. Por favor, tente novamente mais tarde.');
             }).finally(() => {
-                btnSubmit.innerText = 'Cadastrar';
+                btnSubmit.innerHTML = 'Cadastrar';
+                
+                btnSubmit.disabled = false;
             });
         }
     });
