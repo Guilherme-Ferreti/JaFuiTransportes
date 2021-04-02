@@ -1,10 +1,13 @@
 import firebase from './firebase-app';
 import { getFormValues, getLoaderHTML, resetFormValues, showAlert, translateMessage } from './utils';
+import { authCheck, guestCheck } from './auth';
 
 const registerPage = document.querySelector('#register');
 
 if (registerPage) {
-    const db = firebase.firestore();
+    
+    guestCheck();
+
     const form = registerPage.querySelector('form');
     const btnSubmit = form.querySelector('[type="submit"]');
 

@@ -29,7 +29,7 @@ if (newsletterEl) {
             }
 
             db.collection('newsletter').add(data).then(res => {
-                showAlert('success', 'Cadastro realizado com sucesso.');
+                showAlert('success', 'E-mail cadastrado com sucesso.');
 
                 resetFormValues(form);
             }).catch(err => {

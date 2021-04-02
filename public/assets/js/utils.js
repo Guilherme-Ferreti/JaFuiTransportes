@@ -141,7 +141,13 @@ export function translateMessage(messageType) {
         case 'auth/email-already-in-use':
             return 'E-mail informado já cadastrado.';
 
+        case 'auth/wrong-password':
+            return 'E-mail ou senha incorretos.';
+
+        case 'auth/user-not-found':
+            return 'Usuário não encontrado.'
+
         default: 
-            return 'Erro ao validar o formulário. Verifique as informações e tente novamente.';
+            return 'Erro ao realizar a operação. Verifique as informações e tente novamente.';
     }
 }
