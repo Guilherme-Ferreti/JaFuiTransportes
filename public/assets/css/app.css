@@ -1037,7 +1037,7 @@ body > main {
     width: 40%;
   }
   #contact form .wrapper .fields .field textarea {
-    width: 650px;
+    width: 220%;
     align-self: center;
   }
   #contact form .wrapper .fields .field .center {
@@ -1278,6 +1278,56 @@ body > main {
 }
 #error a:hover {
   background-color: var(--green-2);
+}
+
+#alert-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  position: fixed;
+  right: var(--space);
+  bottom: 10vh;
+}
+#alert-wrapper .alert {
+  padding: 20px;
+  color: white;
+  margin-bottom: 15px;
+  width: 300px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  font-family: "Segoe UI";
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+#alert-wrapper .alert.show {
+  opacity: 1;
+  visibility: visible;
+}
+#alert-wrapper .alert .btn-close {
+  right: var(--space);
+  margin-left: 5px;
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+}
+#alert-wrapper .alert .btn-close:hover {
+  color: black;
+}
+#alert-wrapper .alert.info {
+  background-color: var(--blue-1);
+}
+#alert-wrapper .alert.success {
+  background-color: #4BB543;
+}
+#alert-wrapper .alert.warning {
+  background-color: #ff9800;
+}
+#alert-wrapper .alert.danger {
+  background-color: #f44336;
 }
 
 /*# sourceMappingURL=app.css.map */

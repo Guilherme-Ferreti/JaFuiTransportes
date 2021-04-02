@@ -1,5 +1,5 @@
 import firebase from './firebase-app';
-import { getFormValues, getLoaderHTML, resetForm } from './utils';
+import { getFormValues, getLoaderHTML, resetFormValues, showAlert } from './utils';
 
 const contactPage = document.querySelector('#contact');
 
@@ -36,13 +36,13 @@ if (contactPage) {
         const { name, email, subject, orderCode, message } = getFormValues(form);
 
         if (!name) {
-            alert('Preencha o nome!');
+            showAlert('warning', 'Preencha o nome!');
         } else if (!email) {
-            alert('Preencha o e-mail.');
+            showAlert('warning', 'Preencha o e-mail.');
         } else if (!subject) {
-            alert('Preencha o assunto!');
+            showAlert('warning', 'Preencha o assunto!');
         } else if (!message) {
-            alert('Preencha a mensagem!');
+            showAlert('warning', 'Preencha a mensagem!');
         } else {
 
             btnSubmit.innerHTML = getLoaderHTML();
@@ -58,11 +58,11 @@ if (contactPage) {
             }
 
             db.collection('contacts').add(data).then(res => { 
-                resetForm(form);
+                showAlert('success', 'Contato enviado com sucesso.');
                 
-                alert('Contato enviado com sucesso.');
+                resetFormValues(form);
             }).catch(err => {
-                alert('Um erro inesperado ocorreu. Por favor, tente novamente mais tarde.');
+                showAlert('danger', 'Um erro inesperado ocorreu. Por favor, tente novamente mais tarde.');
             }).finally(() => {
                 btnSubmit.innerText = 'Enviar';
 

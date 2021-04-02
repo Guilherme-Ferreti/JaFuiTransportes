@@ -56,6 +56,29 @@ export function getFormValues(form)
     return values;
 }
 
+export function resetFormValues(form) 
+{ 
+    const inputs = form.getElementsByTagName('input');
+    const selects = form.getElementsByTagName('select');
+    const textareas = form.getElementsByTagName('textarea');
+
+    [...inputs].forEach(input => {
+        switch (input.type) {   
+            case 'radio':
+            case 'checkbox':
+                input.checked = false;  
+                
+            default:
+                input.value = '';
+        }
+    });
+
+    [...selects].forEach(select => select.selectedIndex = 0);
+
+    [...textareas].forEach(textarea =>  textarea.value = '');
+}
+
+
 export function getLoaderHTML(color = 'blue-1', isButton = true)
 {
     const classes = [
@@ -73,24 +96,52 @@ export function getLoaderHTML(color = 'blue-1', isButton = true)
     `;
 }
 
-export function resetForm(form) 
-{ 
-    const inputs = form.getElementsByTagName('input');
-    const selects = form.getElementsByTagName('select');
-    const textAreas = form.getElementsByTagName('textarea');
+export function showAlert(type, message) 
+{
+    let alertWrapper = document.querySelector('#alert-wrapper');
 
-    [...inputs].forEach(input => {
-        switch (input.type) {
-            case 'text':
-                input.value = '';
-                break;
-            case 'radio':
-            case 'checkbox':
-                input.checked = false;   
-        }
-    });
+    if (!alertWrapper) {
+        alertWrapper = document.createElement('div');
 
-    [...selects].forEach(select => select.selectedIndex = 0);
+        alertWrapper.id = 'alert-wrapper';
 
-    [...textAreas].forEach(textarea => textarea.innerHTML = '');
+        document.body.append(alertWrapper);
+    }
+
+    const alertEl = document.createElement('div');
+
+    alertWrapper.append(alertEl);
+
+    alertEl.innerHTML = `<span>${message}</span><span class="btn-close">&times;</span>`;
+
+    alertEl.classList.add('alert', type);
+    
+    const closeAlert = () => {
+        alertEl.classList.remove('show');
+
+        setTimeout(() => alertEl.remove(), 1000);
+    }
+
+    alertEl.querySelector('.btn-close').addEventListener('click', e => closeAlert());
+
+    setTimeout(() => alertEl.classList.add('show'), 100); 
+
+    setTimeout(() => closeAlert(), 8000);
+}
+
+export function translateMessage(messageType) {
+
+    switch (messageType) {
+        case 'auth/invalid-email':
+            return 'E-mail inválido.';
+        
+        case 'auth/weak-password':
+            return 'A senha deve conter 6 ou mais caracteres.';
+
+        case 'auth/email-already-in-use':
+            return 'E-mail informado já cadastrado.';
+
+        default: 
+            return 'Erro ao validar o formulário. Verifique as informações e tente novamente.';
+    }
 }

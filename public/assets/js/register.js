@@ -1,5 +1,5 @@
 import firebase from './firebase-app';
-import { getFormValues, getLoaderHTML } from './utils';
+import { getFormValues, getLoaderHTML, resetFormValues, showAlert, translateMessage } from './utils';
 
 const registerPage = document.querySelector('#register');
 
@@ -11,14 +11,14 @@ if (registerPage) {
     form.addEventListener('submit', e => {
         e.preventDefault();
 
-        const { name, email, login, password } = getFormValues(form);
+        const { name, email, password } = getFormValues(form);
 
         if (!name) {
-            alert('Preencha o nome!')
+            showAlert('warning', 'Preencha o nome.');
         } else if (!email) {
-            alert('Preencha o e-mail!')
+            showAlert('warning', 'Preencha o e-mail.');
         } else if (!password) {
-            alert('Preencha a senha!')
+            showAlert('warning', 'Preencha a senha.');
         } else {
 
             btnSubmit.innerHTML = getLoaderHTML('white');
@@ -28,10 +28,12 @@ if (registerPage) {
 
             auth.createUserWithEmailAndPassword(email, password)
                 .then(res => {
-                    
+                    showAlert('success', 'Cadastro realizado com sucesso.');
+
+                    resetFormValues(form);
                 })
                 .catch(err => {
-                    alert(err.message);
+                    showAlert('danger', translateMessage(err.code));
                 })
                 .finally(() => {
                     btnSubmit.innerHTML = 'Cadastrar';

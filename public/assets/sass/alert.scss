@@ -1,0 +1,49 @@
+#alert-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    position: fixed;
+    right: var(--space);
+    bottom: 10vh;
+    .alert {
+        padding: 20px;
+        color: white;
+        margin-bottom: 15px;
+        width: 300px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        font-family: 'Segoe UI';
+        transition: all .5s ease-in-out;
+        opacity: 0;
+        visibility: hidden;
+        display: flex;
+        justify-content: space-between;
+        &.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .btn-close {
+            right: var(--space);
+            margin-left: 5px;
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            &:hover {
+                color: black;
+            }
+        }
+        &.info {
+            background-color: var(--blue-1);
+        }
+        &.success {
+            background-color: #4BB543;
+        }
+        &.warning {
+            background-color: #ff9800;
+        }
+        &.danger {
+            background-color: #f44336;
+        }
+    }
+}
