@@ -5,7 +5,6 @@ const auth = firebase.auth();
 
 export function authCheck(redirect = 'login.html') 
 {
-
     const userLoggedIn = (sessionStorage.getItem('user_logged_in') === 'true') ? true : false;
 
     if (!userLoggedIn && redirect) {
@@ -27,7 +26,16 @@ export function guestCheck(redirect = 'index.html')
     }
 }
 
+auth.onAuthStateChanged(user => {
+    if (user) {
+        sessionStorage.setItem('user_logged_in', 'true');
+    } else {
+        sessionStorage.setItem('user_logged_in', 'false');
+    }
+});
+
 const loginPage = document.querySelector('#login');
+const forgotPasswordPage = document.querySelector('#forgot-password');
 
 if (loginPage) {
     guestCheck();
@@ -45,8 +53,8 @@ if (loginPage) {
         } else if (!password) {
             showAlert('warning', 'Preencha a senha.');
         } else {
-            btnSubmit.disabled = true;
 
+            btnSubmit.disabled = true;
             btnSubmit.innerHTML = getLoaderHTML('white');
 
             try {
@@ -65,10 +73,32 @@ if (loginPage) {
     });
 }
 
-auth.onAuthStateChanged(user => {
-    if (user) {
-        sessionStorage.setItem('user_logged_in', 'true');
-    } else {
-        sessionStorage.setItem('user_logged_in', 'false');
-    }
-});
+if (forgotPasswordPage) {
+    const form = document.querySelector('form');
+    const btnSubmit = form.querySelector('[type="submit"]');
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+
+        const { email } = getFormValues(form);
+
+        if (!email) {
+            showAlert('warning', 'Preencha o e-mail.')
+        } else {
+            
+            btnSubmit.disabled = true;
+            btnSubmit.innerHTML = getLoaderHTML('white');
+
+            auth.sendPasswordResetEmail(email)
+                .then(res => {
+                    showAlert('success', 'E-mail de recuperação enviado com sucesso.');
+                }).catch(err => {
+                    showAlert('danger', translateMessage(err.code));
+                })
+                .finally(() => {
+                    btnSubmit.disabled = false;
+                    btnSubmit.innerHTML = 'Enviar';
+                });
+        }
+    });
+}
