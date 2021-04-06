@@ -18,7 +18,7 @@ if (header) {
 
         const navbar = header.querySelector('nav ul');
     
-        navbar.querySelector('li [href="login.html"]').href = 'index.html';
+        navbar.querySelector('li [href="login.html"]').href = 'userpage.html';
     
         navbar.querySelector('li [href="register.html"]').remove();
     
@@ -31,7 +31,7 @@ if (header) {
                     window.location.href = 'login.html';
                 })
                 .catch(err => {
-                    showAlert('danger', err.code)
+                    showAlert('danger', err.code);
                 });
         });
     }

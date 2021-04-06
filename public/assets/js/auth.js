@@ -62,7 +62,7 @@ if (loginPage) {
 
                 await auth.signInWithEmailAndPassword(email, password);
 
-                window.location.href = 'index.html';
+                window.location.href = 'userpage.html';
             } catch(err) {
                 showAlert('danger', translateMessage(err.code));
             } finally {
@@ -92,6 +92,8 @@ if (forgotPasswordPage) {
             auth.sendPasswordResetEmail(email)
                 .then(res => {
                     showAlert('success', 'E-mail de recuperação enviado com sucesso.');
+
+                    resetFormValues(form);
                 }).catch(err => {
                     showAlert('danger', translateMessage(err.code));
                 })
