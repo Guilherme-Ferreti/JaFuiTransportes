@@ -6,3 +6,4 @@ import './newsletter';
 import './services';
 import './register';
 import './contact';
+import './userpage';

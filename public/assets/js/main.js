@@ -20,7 +20,7 @@ if (header) {
     
         navbar.querySelector('li [href="login.html"]').href = 'userpage.html';
     
-        navbar.querySelector('li [href="register.html"]').remove();
+        navbar.querySelector('li [href="register.html"]').parentElement.remove();
     
         const logoutEl = appendToTemplate(navbar, 'li', '<a href="#">Sair</a>');
     

@@ -34,6 +34,8 @@ if (registerPage) {
                     showAlert('success', 'Cadastro realizado com sucesso.');
 
                     resetFormValues(form);
+
+                    location.href = 'index.html';
                 })
                 .catch(err => {
                     showAlert('danger', translateMessage(err.code));

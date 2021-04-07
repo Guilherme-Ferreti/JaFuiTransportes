@@ -1,4 +1,4 @@
-#userpage {
+#user-page {
     flex-direction: column;
     align-items: center;
     font-family: 'Segoe UI';
@@ -7,6 +7,7 @@
         font-size: 25px;
     }
     table {
+        display: none;
         margin: var(--space) 0px;
         background-color: var(--white);
         border-radius: 5px;
@@ -23,6 +24,17 @@
                 width: 30px;
                 cursor: pointer;
             }
+        }
+    }
+    #loader {
+        margin-top: 100px;
+    }
+}
+
+@media(min-width:768px) {
+    #user-page {
+        table {
+            overflow-x: hidden;
         }
     }
 }

@@ -1367,16 +1367,17 @@ body > main {
   color: var(--gray-1);
 }
 
-#userpage {
+#user-page {
   flex-direction: column;
   align-items: center;
   font-family: "Segoe UI";
 }
-#userpage h1 {
+#user-page h1 {
   margin-top: calc(var(--space) * 2);
   font-size: 25px;
 }
-#userpage table {
+#user-page table {
+  display: none;
   margin: var(--space) 0px;
   background-color: var(--white);
   border-radius: 5px;
@@ -1385,15 +1386,23 @@ body > main {
   max-width: 100vw;
   text-align: center;
 }
-#userpage table th, #userpage table td {
+#user-page table th, #user-page table td {
   padding: var(--space);
 }
-#userpage table td img {
+#user-page table td img {
   height: 30px;
   width: 30px;
   cursor: pointer;
 }
+#user-page #loader {
+  margin-top: 100px;
+}
 
+@media (min-width: 768px) {
+  #user-page table {
+    overflow-x: hidden;
+  }
+}
 #error {
   flex-direction: column;
   font-family: "Segoe UI";

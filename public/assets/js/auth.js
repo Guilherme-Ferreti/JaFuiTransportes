@@ -29,8 +29,10 @@ export function guestCheck(redirect = 'index.html')
 auth.onAuthStateChanged(user => {
     if (user) {
         sessionStorage.setItem('user_logged_in', 'true');
+        sessionStorage.setItem('user_uid', user.uid);
     } else {
-        sessionStorage.setItem('user_logged_in', 'false');
+        sessionStorage.removeItem('user_logged_in');
+        sessionStorage.removeItem('user_uid');
     }
 });
 
