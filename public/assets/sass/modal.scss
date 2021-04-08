@@ -1,0 +1,47 @@
+.modal {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    justify-self: center;
+    align-self: center;
+    width: 50%;
+    height: 50%;
+    top: calc(50vh - 25%);
+    padding: 20px;
+    border-radius: 5px;
+    color: var(--black);
+    background-color: var(--white);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    font-family: 'Segoe UI';
+    transition: all .5s ease-in-out;
+    overflow-y: auto;
+    visibility: hidden;
+    opacity: 0;
+    &.show {
+        visibility: visible;
+        opacity: 1;
+    }
+    .header {
+        display: flex;
+        justify-content: flex-end;
+        .btn-close {
+            right: var(--space);
+            margin-left: 5px;
+            color: var(--black);
+            font-weight: bold;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            width: fit-content;
+            &:hover {
+                color: black;
+            }
+        }
+    }
+    hr {
+        margin: 10px 0px;
+    }
+    p {
+        line-height: 35px;
+    }
+}

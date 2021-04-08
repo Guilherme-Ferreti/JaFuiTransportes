@@ -1,5 +1,5 @@
 import firebase from './firebase-app';
-import { appendToTemplate } from './utils';
+import { appendToTemplate, formatCurrency } from './utils';
 import { authCheck } from './auth';
 
 const userPage = document.querySelector('#user-page');
@@ -9,6 +9,7 @@ if (userPage) {
     authCheck();
 
     const db = firebase.firestore();
+    const modal = document.querySelector('.modal');
 
     const renderPackages = (userPackages) => {
 
@@ -24,17 +25,45 @@ if (userPage) {
 
             userPackage.send_at =  new Date(userPackage.send_at.seconds * 1000).toLocaleDateString('pt-BR');
 
-            appendToTemplate(tbodyEl, 'tr', 
+            const trEl = appendToTemplate(tbodyEl, 'tr', 
             `<td>#${index + 1}</td>
             <td>${userPackage.track_code}</td>
             <td>${userPackage.description}</td>
             <td>${userPackage.status}</td>
             <td>${userPackage.send_at}</td>
-            <td><img src="/assets/images/icons/info.svg" alt="Clique para mais informações"></td>`);
+            <td><img src="/assets/images/icons/info.svg" alt="Clique para mais informações" id="info"></td>`);
+
+            setModal(trEl, userPackage);
         });
 
         tableEl.style.display = 'block';
         loader.style.display = 'none';
+    }
+
+    const setModal = (trEl, userPackage) => {
+        const content = modal.querySelector('.content');
+
+        trEl.querySelector('#info').addEventListener('click', e => {
+            console.log(userPackage);
+
+            content.innerHTML = `
+                <h3>Sua Encomenda #</h3>
+                <hr/>
+                <p>
+                    <b>Status:</b> ${userPackage.status} <br/> 
+                    <i>Código de rastreio:</i> ${userPackage.track_code} <br/> 
+                    <i>Descrição:</i> ${userPackage.description} <br/>
+                    <i>Conteúdo:</i> ${userPackage.content} <br/>
+                    <i>Dimensões:</i> ${userPackage.height} x ${userPackage.width} x ${userPackage.length} (Altura x Largura x Profundidade)<br/> 
+                    <i>Destinatário: </i> ${userPackage.recipient} <br/>
+                    <i>Endereço de entrega:</i> ${userPackage.address} (${userPackage.cep}) <br/>
+                    <i>Enviado em:</i> ${userPackage.send_at} <br/>
+                    <i>Custos de envio:</i> ${formatCurrency(userPackage.shipping_cost)}
+                </p>
+            `;
+
+            modal.classList.add('show');
+        });
     }
 
     const loadPackages = () => {
@@ -49,6 +78,8 @@ if (userPage) {
             renderPackages(UserPackages);
         });
     }
+
+    modal.querySelector('.btn-close').addEventListener('click', e => modal.classList.remove('show'));
 
     loadPackages();
 }

@@ -145,9 +145,17 @@ export function translateMessage(messageType) {
             return 'E-mail ou senha incorretos.';
 
         case 'auth/user-not-found':
-            return 'Usuário não encontrado.'
+            return 'Usuário não encontrado.';
 
         default: 
             return 'Erro ao realizar a operação. Verifique as informações e tente novamente.';
     }
+}
+
+export function formatCurrency(value) 
+{
+    return Intl.NumberFormat('pt-br', {
+        style: 'currency',
+        currency: 'BRL'
+    }).format(value);
 }
