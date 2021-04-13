@@ -12,7 +12,6 @@ if (userPage) {
     const modal = document.querySelector('.modal');
 
     const renderPackages = (userPackages) => {
-
         const tableEl = userPage.querySelector('table');
         const tbodyEl = tableEl.querySelector('tbody');
         const loader = userPage.querySelector('#loader');
@@ -22,12 +21,11 @@ if (userPage) {
         loader.style.display = 'inline-block';
 
         userPackages.forEach((userPackage, index) => {
-
             userPackage.send_at =  new Date(userPackage.send_at.seconds * 1000).toLocaleDateString('pt-BR');
 
             const trEl = appendToTemplate(tbodyEl, 'tr', 
             `<td>#${index + 1}</td>
-            <td>${userPackage.track_code}</td>
+            <td>${userPackage.id}</td>
             <td>${userPackage.description}</td>
             <td>${userPackage.status}</td>
             <td>${userPackage.send_at}</td>
@@ -51,7 +49,7 @@ if (userPage) {
                 <hr/>
                 <p>
                     <b>Status:</b> ${userPackage.status} <br/> 
-                    <i>Código de rastreio:</i> ${userPackage.track_code} <br/> 
+                    <i>Código de rastreio:</i> ${userPackage.id} <br/> 
                     <i>Descrição:</i> ${userPackage.description} <br/>
                     <i>Conteúdo:</i> ${userPackage.content} <br/>
                     <i>Dimensões:</i> ${userPackage.height} x ${userPackage.width} x ${userPackage.length} (Altura x Largura x Profundidade)<br/> 
@@ -67,13 +65,12 @@ if (userPage) {
     }
 
     const loadPackages = () => {
-
         const user_uid = sessionStorage.getItem('user_uid') ?? '';
 
         db.collection('packages').where('user_uid', '==', user_uid).onSnapshot(snapshot => {
             const UserPackages = [];
 
-            snapshot.forEach(userPackage => UserPackages.push(userPackage.data()));
+            snapshot.forEach(userPackage => UserPackages.push(Object.assign({id: userPackage.id}, userPackage.data())));
 
             renderPackages(UserPackages);
         });

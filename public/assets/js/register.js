@@ -2,7 +2,7 @@ import firebase from './firebase-app';
 import { getFormValues, getLoaderHTML, resetFormValues, showAlert, translateMessage } from './utils';
 import { authCheck, guestCheck } from './auth';
 
-const registerPage = document.querySelector('#register');
+const registerPage = document.querySelector('#register-page');
 
 if (registerPage) {
     

@@ -1,5 +1,5 @@
 import firebase from './firebase-app';
-import { getFormValues, getLoaderHTML, showAlert, translateMessage } from './utils';
+import { getFormValues, getLoaderHTML, getQueryString, showAlert, translateMessage } from './utils';
 
 const auth = firebase.auth();
 
@@ -36,8 +36,8 @@ auth.onAuthStateChanged(user => {
     }
 });
 
-const loginPage = document.querySelector('#login');
-const forgotPasswordPage = document.querySelector('#forgot-password');
+const loginPage = document.querySelector('#login-page');
+const forgotPasswordPage = document.querySelector('#forgot-password-page');
 
 if (loginPage) {
     guestCheck();
@@ -64,7 +64,11 @@ if (loginPage) {
 
                 await auth.signInWithEmailAndPassword(email, password);
 
-                window.location.href = 'userpage.html';
+                const { next } = getQueryString();
+
+                console.log(next);
+
+                window.location.href = next || 'userpage.html';
             } catch(err) {
                 showAlert('danger', translateMessage(err.code));
             } finally {

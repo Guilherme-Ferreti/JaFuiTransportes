@@ -7,3 +7,4 @@ import './services';
 import './register';
 import './contact';
 import './userpage';
+import './hire-service';

@@ -1,34 +1,40 @@
 import firebase from './firebase-app';
 import { getFormValues, getLoaderHTML, resetFormValues, showAlert } from './utils';
 
-const contactPage = document.querySelector('#contact');
+const contactPage = document.querySelector('#contact-page');
 
 if (contactPage) {
     const db = firebase.firestore();
     const loader = document.querySelector('#loader');
     const form = contactPage.querySelector('form');
     const btnSubmit = form.querySelector('[type="submit"]');
-    const selectEl = form.querySelector('#subject')
+    const selectEl = form.querySelector('#subject');
 
-    const loadContacts = async () => {
-        const collection = await db.collection('contact-subjects').orderBy('name', 'asc').get();
-
-        collection.docs.forEach(subject => {
-            subject = subject.data();
-
+    const renderSubjects = subjects => {
+        subjects.forEach(subject => {
             const option = document.createElement('option');
 
             option.value = subject.name;
             option.innerText = subject.name;
-
+    
             selectEl.append(option);
-        }); 
+        });
 
         loader.style.display = 'none';
         form.style.display = 'flex';
+    } 
+
+    const loadSubjects = async () => {
+        const collection = await db.collection('contact-subjects').orderBy('name', 'asc').get();
+
+        const subjects = [];
+
+        collection.docs.forEach(subject => subjects.push(subject.data()));
+
+        renderSubjects(subjects);
     }
 
-    loadContacts();
+    loadSubjects();
 
     btnSubmit.addEventListener('click', async e => {
         e.preventDefault();
