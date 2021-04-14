@@ -68,19 +68,21 @@
                 <span>Contratar Serviço</span>
             </div>
 
+            <small>Após o envio do fomulário, leve sua encomanda a loja de postagem mais próxima.</small>
+
             <div class="wrapper">
 
                 <div class="fields">
 
                     <div class="field">
-                        <label for="services">Serviço</label>
-                        <select name="services" id="services">
+                        <label for="service">Serviço</label>
+                        <select name="service" id="service">
                         </select>
                     </div>
         
                     <div class="field">
-                        <label for="email">E-mail *</label>
-                        <input type="email" name="email" id="email" required />
+                        <label for="content">Conteúdo do pacote</label>
+                        <input type="text" name="content" id="content" required />
                     </div>
 
                 </div>
@@ -88,25 +90,30 @@
                 <div class="fields">
 
                     <div class="field">
-                        <label for="subject">Assunto</label>
-                        <select name="subject" id="subject">
-                        </select>
-                    </div>
+                        <label for="description">Descrição</label>
+                        <input type="text" name="description" id="description" required />
     
                     <div class="field">
-                        <label for="order-code">Código do Pedido</label>
-                        <input type="text" name="orderCode" id="order-code" required />
+                        <label for="recipient">Destinatário</label>
+                        <input type="text" name="recipient" id="recipient" required />
                     </div>
 
                 </div>
 
-               <div class="fields">
+                <div class="fields">
+
                     <div class="field">
-                        <label for="message" class="center">Mensagem</label>
-                        <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                        <label for="cep">CEP para entrega</label>
+                        <input type="text" name="cep" id="cep" required />
                     </div>
-               </div>
-    
+
+                    <div class="field">
+                        <label for="address">Endereço para entrega</label>
+                        <input type="text" name="address" id="address" required />
+                    </div>
+
+                </div>
+                
                 <button type="submit" class="btn-send">Enviar</button>
     
             </div>

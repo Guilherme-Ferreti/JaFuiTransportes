@@ -66,9 +66,12 @@ if (loginPage) {
 
                 const { next } = getQueryString();
 
-                console.log(next);
+                if (next) {
+                    window.location.href = `${window.location.origin}/${decodeURIComponent(next)}`;
+                } else {
+                    window.location.href = 'userpage.html';
+                }
 
-                window.location.href = next || 'userpage.html';
             } catch(err) {
                 showAlert('danger', translateMessage(err.code));
             } finally {

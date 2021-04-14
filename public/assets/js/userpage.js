@@ -26,7 +26,7 @@ if (userPage) {
             const trEl = appendToTemplate(tbodyEl, 'tr', 
             `<td>#${index + 1}</td>
             <td>${userPackage.id}</td>
-            <td>${userPackage.description}</td>
+            <td>${userPackage.recipient}</td>
             <td>${userPackage.status}</td>
             <td>${userPackage.send_at}</td>
             <td><img src="/assets/images/icons/info.svg" alt="Clique para mais informações" id="info"></td>`);

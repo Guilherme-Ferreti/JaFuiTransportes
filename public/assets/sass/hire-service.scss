@@ -5,6 +5,9 @@
     font-family: 'Segoe UI';
     padding: var(--space);
     flex-direction: column;
+    small {
+        margin-top: var(--space);
+    }
     form {
         flex-direction: column;  
         border: 1px solid var(--gray-1);

@@ -71,7 +71,6 @@ if (contactPage) {
                 showAlert('danger', 'Um erro inesperado ocorreu. Por favor, tente novamente mais tarde.');
             }).finally(() => {
                 btnSubmit.innerText = 'Enviar';
-
                 btnSubmit.disabled = false;
             });
         }

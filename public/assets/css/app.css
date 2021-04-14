@@ -1412,6 +1412,9 @@ body > main {
   padding: var(--space);
   flex-direction: column;
 }
+#hire-service-page small {
+  margin-top: var(--space);
+}
 #hire-service-page form {
   flex-direction: column;
   border: 1px solid var(--gray-1);
