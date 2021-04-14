@@ -52,7 +52,6 @@ if (userPage) {
                     <i>Código de rastreio:</i> ${userPackage.id} <br/> 
                     <i>Descrição:</i> ${userPackage.description} <br/>
                     <i>Conteúdo:</i> ${userPackage.content} <br/>
-                    <i>Dimensões:</i> ${userPackage.height} x ${userPackage.width} x ${userPackage.length} (Altura x Largura x Profundidade)<br/> 
                     <i>Destinatário: </i> ${userPackage.recipient} <br/>
                     <i>Endereço de entrega:</i> ${userPackage.address} (${userPackage.cep}) <br/>
                     <i>Enviado em:</i> ${userPackage.send_at} <br/>

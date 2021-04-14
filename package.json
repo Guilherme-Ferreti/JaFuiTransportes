@@ -10,7 +10,8 @@
     "sass-build": "sass public/assets/sass/main.scss:public/assets/css/app.css --style=compressed"
   },
   "dependencies": {
-    "firebase": "^8.3.1"
+    "firebase": "^8.3.1",
+    "imask": "^6.0.7"
   },
   "devDependencies": {
     "sass": "^1.32.8",

@@ -8,3 +8,4 @@ import './register';
 import './contact';
 import './userpage';
 import './hire-service';
+import './track';

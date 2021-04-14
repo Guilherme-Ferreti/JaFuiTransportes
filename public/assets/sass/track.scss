@@ -1,0 +1,90 @@
+#track-page {
+    justify-content: center;    
+    align-items: center;
+    color: var(--black-1);
+    font-family: 'Segoe UI';
+    padding: var(--space);
+    flex-direction: column;
+    form {
+        flex-direction: column;  
+        border: 1px solid var(--gray-1);
+        border-radius: 5px;
+        align-items: center;
+        width: 60%;
+        max-width: 1000px;
+        background-color: var(--white);
+        label {
+            text-align: center;
+        }
+        .title {
+            flex-direction: row;
+            border-bottom: 1px solid var(--black);
+            width: 100%;
+            padding: var(--space);
+            font-size: 20px;
+            justify-content: center;
+        }
+        .wrapper {
+            flex-direction: column;  
+            align-items: center;
+            padding: var(--space);
+            width: 100%;
+            .fields {
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                .field {
+                    @include form-field;
+                    padding: 10px 0px;
+                    width: 80%;
+                    label {
+                        color: var(--black-1);
+                    }
+                    input {
+                        border: 1px solid var(--gray-1);
+                    }
+                    
+                }
+            }
+            .btn-send {
+                @include button-blue;
+                padding: var(--space) 0px;
+                width: 50%;
+                height: 45px;
+                margin: var(--space) 0px;
+            }
+            a {
+                padding: var(--space) 0px;
+                text-decoration: none;
+                color: var(--black-1);
+                &:hover {
+                    color: var(--gray-1);
+                }
+            }
+        }   
+    }
+}
+
+@media (min-width: 1024px) {
+    #contact {
+        form {
+            .wrapper {
+                .fields {
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    .field {
+                        width: 40%;
+                        textarea {
+                            width: 220%;
+                            align-self: center;
+                        }
+                        .center {
+                            align-self: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
