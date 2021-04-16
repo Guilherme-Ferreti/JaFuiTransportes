@@ -25,7 +25,7 @@ if (userPage) {
 
             const trEl = appendToTemplate(tbodyEl, 'tr', 
             `<td>#${index + 1}</td>
-            <td>${userPackage.id}</td>
+            <td>${userPackage.track_code}</td>
             <td>${userPackage.recipient}</td>
             <td>${userPackage.status}</td>
             <td>${userPackage.send_at}</td>
@@ -42,10 +42,8 @@ if (userPage) {
         const content = modal.querySelector('.content');
 
         trEl.querySelector('#info').addEventListener('click', e => {
-            console.log(userPackage);
-
             content.innerHTML = `
-                <h3>Sua Encomenda #</h3>
+                <h3>Sua Encomenda</h3>
                 <hr/>
                 <p>
                     <b>Status:</b> ${userPackage.status} <br/> 
